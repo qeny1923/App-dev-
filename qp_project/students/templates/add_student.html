@@ -1,0 +1,37 @@
+<h1>Add Student</h1>
+
+{% if success %}
+    <p>Student saved successfully.</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #de87ed;
+        border-radius: 5px;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #de87ed;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>

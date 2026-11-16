@@ -1,0 +1,64 @@
+<h1>Book List</h1>
+<button>
+    <a href="{% url 'home' %}">Back to Home</a>
+</button>
+<button>
+    <a href="{% url 'add_book' %}">Add Book</a>
+</button>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year Published</th>
+        <th>Actions</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.year_published }}</td>
+        <td>
+            <a href="{% url 'edit_book' book.id %}">Edit</a>
+            <a href="{% url 'delete_book' book.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<style>
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #de87ed;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    table {
+        border: 1px solid #de87ed;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #de87ed;
+        color: white;
+    }
